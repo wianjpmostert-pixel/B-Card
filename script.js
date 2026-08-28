@@ -1,11 +1,11 @@
-// Demo contact (ready-to-view). Edit these fields for your real card.
+// Your real contact information — edit if needed
 const contact = {
   fullName: 'Willem Mostert',
   title: 'Electronic & Electrical Engineer : Intern',
   company: 'Institute for Maritime Technology',
   phone: '0124288133',
   email: 'WillemM@imt.co.za',
-  address: 'Martello Road Simon’s Town 7975, South Africa'
+  address: 'Martello Road, Simon\'s Town 7975, South Africa'
 };
 
 function createAvatarDataUrl(name) {
