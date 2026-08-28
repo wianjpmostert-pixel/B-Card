@@ -32,12 +32,11 @@ function init() {
   const avatar = document.getElementById('avatar');
   if(avatar) avatar.src = createAvatarDataUrl(contact.fullName);
 
-  // QR code points to the current page URL (works when hosted)
-  const url = location.href;
+  // QR code points to LinkedIn profile
+  const url = 'https://www.linkedin.com/in/wian-mostert';
   new QRCode(document.getElementById('qrcode'), {text: url, width:160, height:160});
 
   document.getElementById('downloadVcard').addEventListener('click', downloadVCard);
-  document.getElementById('copyLink').addEventListener('click', copyLink);
 }
 
 function downloadVCard() {
