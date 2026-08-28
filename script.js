@@ -25,9 +25,7 @@ function init() {
   document.getElementById('title').textContent = `${contact.title} • ${contact.company}`;
   document.getElementById('phone').textContent = contact.phone;
   document.getElementById('email').textContent = contact.email;
-  const websiteEl = document.getElementById('website');
-  websiteEl.href = contact.website;
-  websiteEl.textContent = contact.website.replace(/^https?:\/\//, '');
+  // Website field removed from card UI; only display address
   document.getElementById('address').textContent = contact.address;
   const avatar = document.getElementById('avatar');
   if(avatar) avatar.src = createAvatarDataUrl(contact.fullName);

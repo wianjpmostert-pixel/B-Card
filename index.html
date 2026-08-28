@@ -9,15 +9,21 @@
 </head>
 <body>
   <main class="card">
-    <img id="avatar" src="avatar.png" alt="avatar" onerror="this.style.display='none'"/>
-    <h1 id="name">Your Name</h1>
-    <p id="title">Your Title • Company</p>
+    <div class="card-header">
+      <div class="avatar-wrap">
+        <img id="avatar" src="avatar.png" alt="avatar" onerror="this.style.display='none'"/>
+      </div>
+    </div>
 
-    <div class="contact-list">
-      <p><strong>Phone:</strong> <span id="phone">+1 555 555 5555</span></p>
-      <p><strong>Email:</strong> <span id="email">you@example.com</span></p>
-      <p><strong>Website:</strong> <a id="website" href="#">https://example.com</a></p>
-      <p><strong>Address:</strong> <span id="address">City, Country</span></p>
+    <div class="card-body">
+      <h1 id="name">Your Name</h1>
+      <p id="title">Your Title • Company</p>
+
+      <div class="contact-list">
+        <p><strong>Phone:</strong> <span id="phone">+1 555 555 5555</span></p>
+        <p><strong>Email:</strong> <span id="email">you@example.com</span></p>
+        <p><strong>Address:</strong> <span id="address">City, Country</span></p>
+      </div>
     </div>
 
     <div class="actions">
