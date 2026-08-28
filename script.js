@@ -28,7 +28,14 @@ function init() {
   // Website field removed from card UI; only display address
   document.getElementById('address').textContent = contact.address;
   const avatar = document.getElementById('avatar');
-  if(avatar) avatar.src = createAvatarDataUrl(contact.fullName);
+  if (avatar) {
+    // If `avatar.png` fails to load, fall back to generated initials SVG
+    avatar.onerror = () => {
+      avatar.onerror = null;
+      avatar.src = createAvatarDataUrl(contact.fullName);
+    };
+    // leave `src` as the HTML-provided `avatar.png` so Pages-served image loads when present
+  }
 
   // QR code points to LinkedIn profile
   const url = 'https://www.linkedin.com/in/wian-mostert';
