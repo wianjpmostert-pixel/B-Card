@@ -1,0 +1,17 @@
+:root{--bg:#f6f8fb;--card:#fff;--accent:#0366d6;--muted:#6b7280}
+*{box-sizing:border-box;font-family:Inter,Segoe UI,Helvetica,Arial,sans-serif}
+body{background:var(--bg);display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
+.card{background:var(--card);padding:28px;border-radius:12px;box-shadow:0 6px 24px rgba(13,38,76,0.12);width:360px;text-align:center}
+#avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;margin-bottom:12px}
+h1{margin:0 0 6px 0;font-size:20px}
+#title{color:var(--muted);margin:0 0 16px 0}
+.contact-list{text-align:left;margin-bottom:16px}
+.contact-list p{margin:6px 0;color:#111}
+.actions{display:flex;gap:8px;justify-content:center;margin-bottom:14px}
+.actions button{background:var(--accent);color:#fff;border:none;padding:10px 12px;border-radius:8px;cursor:pointer}
+.actions button.secondary{background:#e6eefc;color:var(--accent)}
+.actions a{align-self:center;color:var(--accent);text-decoration:none}
+.qr{margin-top:6px}
+.qr p{color:var(--muted);font-size:13px;margin:8px 0 0}
+.wallet{margin-top:12px;text-align:left;font-size:13px;color:var(--muted)}
+.wallet h3{margin:0 0 6px 0}

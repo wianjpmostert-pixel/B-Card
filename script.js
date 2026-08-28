@@ -1,0 +1,74 @@
+// Demo contact (ready-to-view). Edit these fields for your real card.
+const contact = {
+  fullName: 'Jane Doe',
+  title: 'Product Designer',
+  company: 'Acme Co',
+  phone: '+1 415 555 0123',
+  email: 'jane.doe@example.com',
+  website: 'https://example.com',
+  address: 'San Francisco, CA'
+};
+
+function createAvatarDataUrl(name) {
+  const initials = name.split(' ').map(s=>s[0]||'').slice(0,2).join('').toUpperCase();
+  const bg = '#0366d6';
+  const fg = '#ffffff';
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='256' height='256'>`+
+    `<rect width='100%' height='100%' fill='${bg}'/>`+
+    `<text x='50%' y='50%' dy='.1em' font-family='Verdana,Segoe UI,Arial' font-size='96' fill='${fg}' text-anchor='middle'>${initials}</text>`+
+    `</svg>`;
+  return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+}
+
+function init() {
+  document.getElementById('name').textContent = contact.fullName;
+  document.getElementById('title').textContent = `${contact.title} • ${contact.company}`;
+  document.getElementById('phone').textContent = contact.phone;
+  document.getElementById('email').textContent = contact.email;
+  const websiteEl = document.getElementById('website');
+  websiteEl.href = contact.website;
+  websiteEl.textContent = contact.website.replace(/^https?:\/\//, '');
+  document.getElementById('address').textContent = contact.address;
+  const avatar = document.getElementById('avatar');
+  if(avatar) avatar.src = createAvatarDataUrl(contact.fullName);
+
+  // QR code points to the current page URL (works when hosted)
+  const url = location.href;
+  new QRCode(document.getElementById('qrcode'), {text: url, width:160, height:160});
+
+  document.getElementById('downloadVcard').addEventListener('click', downloadVCard);
+  document.getElementById('copyLink').addEventListener('click', copyLink);
+}
+
+function downloadVCard() {
+  const vcard = [
+    'BEGIN:VCARD',
+    'VERSION:3.0',
+    `FN:${contact.fullName}`,
+    `TITLE:${contact.title}`,
+    `ORG:${contact.company}`,
+    `TEL;TYPE=WORK,VOICE:${contact.phone}`,
+    `EMAIL;TYPE=INTERNET:${contact.email}`,
+    `ADR;TYPE=WORK:;;${contact.address};;;;`,
+    `URL:${contact.website}`,
+    'END:VCARD'
+  ].join('\r\n');
+
+  const blob = new Blob([vcard], {type: 'text/vcard'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${contact.fullName.replace(/\s+/g,'_')}.vcf`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(location.href).then(()=>{
+    alert('Link copied to clipboard');
+  },()=>{
+    alert('Unable to copy link');
+  });
+}
+
+window.addEventListener('DOMContentLoaded', init);

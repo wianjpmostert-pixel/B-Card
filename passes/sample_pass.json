@@ -1,0 +1,33 @@
+{
+  "passType": "business_card",
+  "version": "1.0",
+  "organizationName": "Your Organization",
+  "serialNumber": "unique-serial-0001",
+  "description": "Virtual business card",
+  "logoText": "Your Name",
+  "foregroundColor": "#000000",
+  "backgroundColor": "#FFFFFF",
+  "fields": {
+    "primary": [
+      { "key": "name", "label": "Name", "value": "Your Name" }
+    ],
+    "secondary": [
+      { "key": "title", "label": "Title", "value": "Your Title" },
+      { "key": "company", "label": "Company", "value": "Company" }
+    ],
+    "auxiliary": [
+      { "key": "phone", "label": "Phone", "value": "+1 555 555 5555" },
+      { "key": "email", "label": "Email", "value": "you@example.com" },
+      { "key": "website", "label": "Website", "value": "https://example.com" }
+    ]
+  },
+  "barcode": {
+    "format": "QR",
+    "message": "https://example.com",
+    "messageEncoding": "utf-8"
+  },
+  "assets": {
+    "icon": "icon.png",
+    "logo": "logo.png"
+  }
+}
