@@ -3,10 +3,8 @@ const contact = {
   fullName: 'Willem Mostert',
   title: 'Electronic & Electrical Engineer : Intern',
   company: 'Institute for Maritime Technology',
-  phoneWork: '0124288133',
-  phonePersonal: '0738497098',
-  emailWork: 'WillemM@imt.co.za',
-  emailPersonal: 'wianjpmostert@gmail.com',
+  phone: '0124288133',
+  email: 'WillemM@imt.co.za',
   address: 'Martello Road Simon’s Town 7975, South Africa'
 };
 
@@ -24,10 +22,8 @@ function createAvatarDataUrl(name) {
 function init() {
   document.getElementById('name').textContent = contact.fullName;
   document.getElementById('title').textContent = `${contact.title} • ${contact.company}`;
-  document.getElementById('phoneWork').textContent = contact.phoneWork;
-  document.getElementById('phonePersonal').textContent = contact.phonePersonal;
-  document.getElementById('emailWork').textContent = contact.emailWork;
-  document.getElementById('emailPersonal').textContent = contact.emailPersonal;
+  document.getElementById('phone').textContent = contact.phone;
+  document.getElementById('email').textContent = contact.email;
   // display address
   document.getElementById('address').textContent = contact.address;
   const avatar = document.getElementById('avatar');
@@ -54,12 +50,9 @@ function downloadVCard() {
     `FN:${contact.fullName}`,
     `TITLE:${contact.title}`,
     `ORG:${contact.company}`,
-    `TEL;TYPE=WORK,VOICE:${contact.phoneWork}`,
-    `TEL;TYPE=CELL,VOICE:${contact.phonePersonal}`,
-    `EMAIL;TYPE=WORK,INTERNET:${contact.emailWork}`,
-    `EMAIL;TYPE=HOME,INTERNET:${contact.emailPersonal}`,
+    `TEL;TYPE=WORK,VOICE:${contact.phone}`,
+    `EMAIL;TYPE=INTERNET:${contact.email}`,
     `ADR;TYPE=WORK:;;${contact.address};;;;`,
-    `URL:${contact.website}`,
     'END:VCARD'
   ].join('\r\n');
 
