@@ -1,12 +1,12 @@
 // Demo contact (ready-to-view). Edit these fields for your real card.
 const contact = {
-  fullName: 'Jane Doe',
-  title: 'Product Designer',
-  company: 'Acme Co',
-  phone: '+1 415 555 0123',
-  email: 'jane.doe@example.com',
+  fullName: 'Willem Mostert',
+  title: 'Electronic & Electrical Engineer : Intern',
+  company: 'Institute for Maritime Technology',
+  phone: '+27 73 849 7098',
+  email: 'WillemM@imt.co.za',
   website: 'https://example.com',
-  address: 'San Francisco, CA'
+  address: 'Martello Road Simon’s Town 7975, South Africa'
 };
 
 function createAvatarDataUrl(name) {
